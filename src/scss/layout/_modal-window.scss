@@ -1,0 +1,130 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  animation: modal-show 0.5s 1 forwards;
+}
+
+.modal-content {
+  position: relative;
+  top: 10%;
+  left: calc(50% - 240px);
+  width: 480px;
+  height: 480px;
+  overflow: auto;
+  background: #444444;
+  background-color: white;
+  border: 3px solid gold;
+  border-radius: 3px;
+}
+
+.modal:target {
+  display: flex;
+}
+
+.modal-header {
+  box-sizing: border-box;
+  width: 100%;
+  height: 45px;
+  margin: 0;
+  padding: 10px;
+  font-size: 1.2rem;
+  color: black;
+  background: gold;
+}
+
+.modal-body {
+  display: block;
+  box-sizing: border-box;
+  padding: 20px 5% 0;
+  overflow: auto;
+  background-color: #ffffff;
+  border-radius: 3px;
+}
+
+.modal-body__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.item__hot-key {
+  display: inline-block;
+  box-sizing: border-box;
+  height: 30px;
+  margin-left: 10px;
+  padding: 0 10px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  font-family: monospace;
+  text-align: center;
+  border: 2px solid gold;
+  border-radius: 2px;
+  cursor: default;
+}
+
+.item__hot-key--color {
+  margin-left: 0;
+}
+
+.item__label {
+  padding-left: 1rem;
+  font-size: 1rem;
+  cursor: default;
+}
+
+.modal-show {
+  position: relative;
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-show:hover::after {
+  content: attr(data-title);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  color: gold;
+  background: #333333;
+  border: 1px solid #333333;
+}
+.modal-hide {
+  position: absolute;
+  top: 0;
+  right: 0.1em;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  font-size: 2rem;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+}
+
+@keyframes modal-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

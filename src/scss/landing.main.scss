@@ -1,0 +1,145 @@
+@import "base/normalize";
+@import "base/fonts";
+@import "abstracts/variables";
+
+body {
+  width: 1440px;
+  margin: 0 auto;
+  font-family: $font-1;
+  text-align: center;
+  color: #ffffff;
+  background-color: rgb(18, 18, 18);
+}
+.header {
+  position: relative;
+  margin: 0 40px;
+}
+.header__welcome {
+  margin: 35px auto;
+  letter-spacing: 1.5px;
+}
+.header__glitch {
+  position: relative;
+  width: 200px;
+  margin: 0 auto;
+  font-size: 40px;
+  color: white;
+  border: 1px solid white;
+}
+@keyframes noise-anim {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100)+px,9999px,random(100)+px,0);
+    }
+  }
+}
+.header__glitch:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: -3px;
+  overflow: hidden;
+  color: white;
+  text-shadow: -1px 0 red;
+  background: black;
+  animation: noise-anim 2s infinite linear alternate-reverse;
+  clip: rect(0,900px,0,0);
+}
+
+@keyframes noise-anim-2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100)+px,9999px,random(100)+px,0);
+    }
+  }
+}
+.header__glitch:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: -2px;
+  overflow: hidden;
+  color: white;
+  text-shadow: 1px 0 blue;
+  background: black;
+  animation: noise-anim-2 3s infinite linear alternate-reverse;
+  clip: rect(0,900px,0,0);
+}
+.header__preview {
+  max-width: 600px;
+  max-height: 268px;
+}
+.header__gif-box {
+  display: flex;
+  justify-content: center;
+}
+.main {
+  margin: 35px 40px;
+}
+.footer {
+  margin-top: 35px;
+}
+.recomendations {
+  display: flex;
+  flex-direction: column;
+}
+
+.recomendations__frame-container {
+  margin-top: 20px;
+}
+.main-information {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+.main-information__functionality-descpition-list {
+  margin: 20px 0;
+  list-style-type: none;
+  font-size: 24px;
+  text-align: left;
+}
+.main-information__description-text {
+  margin: 20px auto;
+  color: #ffffff;
+}
+.recomendations__annotation {
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+.animation-previev__description {
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+footer {
+  margin: 0 40px;
+}
+.footer-information__tg-icon,
+.footer-information__vk-icon,
+.footer-information__github-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  background-image: url(../assets/images/gif/giftg.gif);
+  background-size: cover;
+  border-radius: 50%;
+}
+.footer-information__vk-icon {
+  width: 40px;
+  height: 40px;
+  margin-left: 0;
+  background-image: url(../assets/images/gif/gifvk.gif);
+}
+.footer-information__github-icon {
+  width: 40px;
+  width: 40px;
+  background-image: url(../assets/images/gif/octocat.gif);
+}
+.footer-information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
+}

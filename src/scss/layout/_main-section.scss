@@ -1,0 +1,123 @@
+
+.main {
+  display: grid;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem 2rem 0;
+
+  grid-template: "work-place frames canvas animation-preview";
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.work-place {
+  grid-area: work-place;
+}
+
+.frames {
+  grid-area: frames;
+}
+
+.canvas__wraper {
+  grid-area: canvas;
+}
+.canvas {
+  position: relative;
+  width: 512px;
+  height: 512px;
+  overflow: hidden;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+}
+
+.animation-preview {
+  grid-area: animation-preview;
+}
+
+.canvas-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 512px;
+  height: 512px;
+}
+
+.canvas-field-temp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 512px;
+  height: 512px;
+}
+
+.active {
+  box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+}
+.frames,
+.animation-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.frame {
+  min-width: 150px;
+  min-height: 150px;
+  margin-bottom: 1rem;
+  border: 1px solid black;
+}
+
+.animation-preview__preview-frame {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 1rem;
+  background-image: url(../assets/images/gif/animationPromo.gif);
+  background-size: cover;
+  border: 1px solid black;
+}
+.scroll-container {
+  width: 210px;
+  height: 700px;
+  overflow: hidden;
+  outline: none;
+
+  h1:after {
+    content: " hidden";
+  }
+
+  p {
+    line-height: 1.5;
+  }
+
+  &:hover,
+  &:focus {
+    overflow-y: auto;
+
+    h1:after {
+      content: " shown";
+    }
+  }
+}
+.deleteIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-color: red;
+  cursor: pointer;
+}
+.frame {
+  position: relative;
+}
+.cloneFrameIcon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-color: red;
+  cursor: pointer;
+}

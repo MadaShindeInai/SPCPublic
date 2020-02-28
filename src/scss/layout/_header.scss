@@ -1,0 +1,71 @@
+.header {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+.header__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  // box-shadow: 0 4px 3px 0 rgba(0,0,0,0.25), 0 4px 3px rgba(0,0,0,0.22);
+}
+.header__title {
+  margin-left: 1rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1em;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+}
+
+.header__dropdown--menu,
+.header__dropdown--options {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.header #userInfo {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+  margin-right: 20px;
+  padding-right: 5px;
+  font-size: 16pt;
+  background-color: rgba($color: #5f264e, $alpha: 0.8);
+  background-color: white;
+  border: solid 1px transparent;
+  border-color: currentColor;
+  border-radius: 5px;
+  cursor: pointer;;
+}
+.header #userInfo #userImg {
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+}
+
+.header #logIn,
+.header #logOut {
+  width: 80px;
+  height: 30px;
+  margin-right: 5px;
+  font-size: 14pt;
+  color: white;
+  background-color: rgba($color: #5f264e, $alpha: 0.8);
+  border: solid 1px transparent;
+  border-radius: 5px;
+  cursor: pointer;;
+}
+.login-google-wrapper {
+  display: flex;
+  margin-right: 3.5rem;
+}
+.header #logOut {
+  display: none;
+}

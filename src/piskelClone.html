@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="google-signin-client_id"
+    content="978366753912-eslhpgag4jfg2tbkai9tr2erjup92tou.apps.googleusercontent.com">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="./images/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <title>Simple Piskel Clone</title>
+  <link rel="apple-touch-icon" sizes="120x120" href="./images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="./images/favicons/site.webmanifest">
+  <link rel="mask-icon" href="./images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="./images/favicons/favicon.ico">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="header__nav">
+      <h1 class="header__title"><a href="#">Simple Piskel Clone</a></h1>
+      <div class="login-google-wrapper">
+        <button id="logIn">Log In</button>
+        <div id="userInfo">
+          <img id="userImg">
+          <span id="userName"></span>
+        </div>
+        <button id="logOut">Log Out</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="work-place">
+      <ul class="work-place__tool-bar">
+        <li class="button pencil active" onmousedown="return false" onselectstart="return false">
+          <img class="pencil" src="./assets/images/pencil.png" alt="move" width="24" height="24">
+          <span class="tool-bar__text pencil">Pencil</span>
+        </li>
+
+        <li class="button chooseColor" onmousedown="return false" onselectstart="return false">
+          <img class="chooseColor" src="./assets/images/pipette.png" alt="pipe" width="24" height="24">
+          <span class="tool-bar__text chooseColor">Choose color</span>
+        </li>
+
+        <li class="button paintBucket" onmousedown="return false" onselectstart="return false">
+          <img class="paintBucket" src="./assets/images/bucket.png" alt="bucket" width="24" height="24">
+          <span class="tool-bar__text paintBucket">Paint bucket</span>
+        </li>
+
+        <li class="button eraser" onmousedown="return false" onselectstart="return false">
+          <img class="eraser" src="./assets/images/eraser.png" alt="eraser" width="24" height="24">
+          <span class="tool-bar__text eraser">Eraser</span>
+        </li>
+
+        <li class="button line" onmousedown="return false" onselectstart="return false">
+          <img class="line" src="./assets/images/stroke.png" alt="line" width="24" height="24">
+          <span class="tool-bar__text line">Stroke</span>
+        </li>
+
+        <li class="button rectangle" onmousedown="return false" onselectstart="return false">
+          <img class="rectangle" src="./assets/images/rectangle.png" alt="rectangle" width="24" height="24">
+          <span class="tool-bar__text rectangle">Rectangle</span>
+        </li>
+
+        <label class="button input-color" onmousedown="return false" onselectstart="return false">
+          <div class="tool-bar__color tool-bar__color--current"></div>
+          <input class="input-current-color" type="color">
+          Current color
+        </label>
+
+        <li class="button previous" onmousedown="return false" onselectstart="return false">
+          <div class="tool-bar__color tool-bar__color--previous previous"></div>
+          <span class="previous">Previous color</span>
+        </li>
+
+        <li class="button red" onmousedown="return false" onselectstart="return false">
+          <div class="tool-bar__color tool-bar__color--red red"></div>
+          <span class="red">Red</span>
+        </li>
+
+        <li class="button blue" onmousedown="return false" onselectstart="return false">
+          <div class="tool-bar__color tool-bar__color--blue blue"></div>
+          <span class="blue">Blue</span>
+        </li>
+
+        <li class="button tool-bar__bw-canvas button bw">
+          <img class="bw" src="./assets/images/bw.png" alt="bw" width="24" height="24">
+          <span class="tool-bar__text bw">B&W</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="frames scroll-container" tabindex="1">
+      <div class="frames__item">
+        <ul>
+          <li class="button button--XL">Add new frame</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="canvas__wraper">
+      <div class="canvas">
+        <canvas class="canvas-field" width="512" height="512"></canvas>
+      </div>
+    </section>
+
+    <section class="animation-preview">
+      <div class="animation-preview__preview-frame"></div>
+      <div class="animation-preview__range-fps">
+        <p class="range-fps__value">
+          <span class="value__number"></span>
+          <span class="value__label">FPS</span>
+        </p>
+        <input type="range" value="4" class="range-fps__input-fps" min="1" max="24">
+      </div>
+      <div class="pen-size">
+        <p class="pen-size__value">
+          <span class="pen-size__label">Pen size is</span>
+          <span class="pen-size__number">4</span>
+          <span class="pen-size__label">px </span>
+        </p>
+        <input type="range" value="4" class="pen-size__input-px" min="1" max="24">
+      </div>
+
+      <div class="canvas-size">
+        <p class="pen-size__value">
+          <span class="canvas-size__label">Zoom</span>
+          <span class="canvas-size__label">X</span>
+          <span class="canvas-size__number">1</span>
+        </p>
+        <input type="range" value="800" class="canvas-size__input-px" min="32" max="800">
+      </div>
+
+      <ul class="canvas-size__tool-bar">
+        <li class="button sizeS" onmousedown="return false" onselectstart="return false">
+          <span class="tool-bar__text sizeS">32x32</span>
+        </li>
+
+        <li class="button sizeM" onmousedown="return false" onselectstart="return false">
+          <span class="tool-bar__text sizeM">64x64</span>
+        </li>
+
+        <li class="button sizeL active" onmousedown="return false" onselectstart="return false">
+          <span class="tool-bar__text sizeL">128x128</span>
+        </li>
+        <li class="button getGif" onmousedown="return false" onselectstart="return false">
+          <span class="tool-bar__text getGif" download>gefGif</span>
+        </li>
+        <li class="button getApng" onmousedown="return false" onselectstart="return false">
+          <span class="tool-bar__text getApng" download>getApng</span>
+        </li>
+        <li class="modal-show" data-title="Keyboard shortcuts. Click me">
+          <img class="keyboard modal-show" src="./assets/images/keyboard.png" alt="move" width="100" height="70">
+        </li>
+        <div class="modal" id="modal">
+          <div class="modal-content">
+            <span class="modal-hide">✕</span>
+            <div class="modal-header">
+              <h2 class="modal-header__title">Keyboard shortcuts</h2>
+            </div>
+            <div class="modal-body">
+              <h3 class="modal-body__title">Tool shortcuts</h3>
+              <ul>
+                <li class="modal-body__item">
+                  <img class="pencil" src="./assets/images/pencil.png" alt="move" width="24" height="24">
+                  <span class="item__hot-key">Alt + K</span>
+                  <span class="item__label">Pencil</span>
+                </li>
+                <li class="modal-body__item">
+                  <img class="chooseColor" src="./assets/images/pipette.png" alt="pipe" width="24" height="24">
+                  <span class="item__hot-key">Alt + C</span>
+                  <span class="tool-bar__text chooseColor">Choose color</span>
+                </li>
+                <li class="modal-body__item">
+                  <img class="paintBucket" src="./assets/images/bucket.png" alt="bucket" width="24" height="24">
+                  <span class="item__hot-key">Alt + B</span>
+                  <span class="item__label">Paint bucket</span>
+                </li>
+                <li class="modal-body__item">
+                  <img class="eraser" src="./assets/images/eraser.png" alt="eraser" width="24" height="24">
+                  <span class="item__hot-key">Alt + H</span>
+                  <span class="item__label">Eraser</span>
+                </li>
+
+                <li class="modal-body__item">
+                  <img class="line" src="./assets/images/stroke.png" alt="line" width="24" height="24">
+                  <span class="item__hot-key">Alt + L</span>
+                  <span class="item__label">Stroke</span>
+                </li>
+
+                <li class="modal-body__item">
+                  <img class="rectangle" src="./assets/images/rectangle.png" alt="rectangle" width="24" height="24">
+                  <span class="item__hot-key">Alt + R</span>
+                  <span class="item__label">Rectangle</span>
+                </li>
+              </ul>
+
+              <h3 class="modal-body__title">Color shortcuts</h3>
+              <ul>
+                <li class="modal-body__item">
+                  <span class="item__hot-key item__hot-key--color">Alt + 1</span>
+                  <span class="item__label">Previous color</span>
+                </li>
+
+                <li class="modal-body__item">
+                  <span class="item__hot-key item__hot-key--color">Alt + 2</span>
+                  <span class="item__label">Red</span>
+                </li>
+
+                <li class="modal-body__item">
+                  <span class="item__hot-key item__hot-key--color">Alt + 3</span>
+                  <span class="item__label">Blue</span>
+                </li>
+
+
+                <li class="modal-body__item">
+                  <span class="item__hot-key item__hot-key--color">Alt + 4</span>
+                  <span class="item__label">B&W</span>
+                </li>
+              </ul>
+              <h3 class="modal-body__title">Frame shortcuts</h3>
+              <ul>
+                <li class="modal-body__item">
+                  <span class="item__hot-key item__hot-key--color">Alt + A</span>
+                  <span class="item__label">Add frame</span>
+                </li>
+              </ul>
+              <h3 class="modal-body__title">Canvas size shortcuts</h3>
+              <ul>
+                <li class="modal-body__item">
+                  <span class="item__hot-key item__hot-key--color">Alt + 5</span>
+                  <span class="item__label">128 x 128</span>
+                </li>
+                <li class="modal-body__item">
+                  <span class="item__hot-key item__hot-key--color">Alt + 6</span>
+                  <span class="item__label">64 x 64</span>
+                </li>
+                <li class="modal-body__item">
+                  <span class="item__hot-key item__hot-key--color">Alt + 7</span>
+                  <span class="item__label">32 x 32</span>
+                </li>
+              </ul>
+              <h3 class="modal-body__title">Download shortcuts</h3>
+              <ul>
+                <li class="modal-body__item">
+                  <span class="item__hot-key item__hot-key--color">Alt + 8</span>
+                  <span class="item__label">Download .gif</span>
+                </li>
+                <li class="modal-body__item">
+                  <span class="item__hot-key item__hot-key--color">Alt + 9</span>
+                  <span class="item__label">Download .apng</span>
+                </li>
+              </ul>
+              <h3 class="modal-body__title">View shortcuts</h3>
+              <ul>
+                <li class="modal-body__item">
+                  <span class="item__hot-key item__hot-key--color">F11</span>
+                  <span class="item__label">Full screen</span>
+                </li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+
+      </ul>
+    </section>
+
+  </main>
+</body>
+
+</html>

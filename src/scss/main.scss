@@ -1,0 +1,13 @@
+@import "base/normalize";
+@import "base/fonts";
+@import "abstracts/variables";
+
+//components
+@import "components/buttons";
+@import "components/inputs";
+
+//layout and pages
+@import "layout/common";
+@import "layout/header";
+@import "layout/main-section";
+@import "layout/modal-window";

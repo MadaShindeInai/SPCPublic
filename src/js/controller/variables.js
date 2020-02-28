@@ -1,0 +1,15 @@
+export const ARRAYBUFFER = [];
+export const IMAGES = [];
+export const FRAMEARRAY = [];
+export const CLIENT_ID = '978366753912-eslhpgag4jfg2tbkai9tr2erjup92tou.apps.googleusercontent.com';
+export const API_KEY = 'AIzaSyAgNTjc1d148xrWYqHNHY-z0fsv_dGP27c';
+export const CANVASSIZES = 128;
+export const CANVASSIZEM = 256;
+export const CANVASSIZEL = 512;
+export const DEMOPIXELVALUE = 4;
+export const OPACITYCOEFFICIENT = 255;
+export const ONESECINMILISEC = 1000;
+export const MAXZOOMVALUE = 800;
+export const DEMOCURRENTCOLOR = '#080808';
+export const DEMOPREVIOUSCOLOR = '#ffeb3b';
+export const DEMOTEMPORARYCOLOR = '#FFFFFF';
